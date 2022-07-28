@@ -2,7 +2,7 @@ FROM crystallang/crystal:latest
 
 ADD . /src
 WORKDIR /src
-RUN crystal build --release ./file_server.cr
+RUN crystal build --release ./src/file_server.cr
 
 RUN ldd ./file_server | tr -s '[:blank:]' '\n' | grep '^/' | \
    xargs -I % sh -c 'mkdir -p $(dirname deps%); cp % deps%;'
