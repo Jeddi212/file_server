@@ -8,7 +8,9 @@ Static simple file server using crystal
 
 ## Usage
 
-TODO: Write usage instructions here
+`docker run --rm -it -v ${PWD}:/www -p 8080:80 file_server:0.1.0`
+
+then go to `http://localhost:8080`
 
 ## Development
 
