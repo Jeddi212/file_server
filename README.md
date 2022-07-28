@@ -4,7 +4,7 @@ Static simple file server using crystal
 
 ## Installation
 
-TODO: Write installation instructions here
+`docker build -t "file_server:0.1.0" .`
 
 ## Usage
 
