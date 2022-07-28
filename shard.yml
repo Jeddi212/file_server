@@ -1,0 +1,13 @@
+name: file_server
+version: 0.1.0
+
+authors:
+  - Jeddi212 <jedediahf51@gmail.com>
+
+targets:
+  file_server:
+    main: src/file_server.cr
+
+crystal: 1.5.0
+
+license: MIT
