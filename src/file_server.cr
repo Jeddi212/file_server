@@ -1,8 +1,15 @@
 require "http"
 require "option_parser"
 
-path = "./public"
-port = 8081
+# Handle Ctrl+C and kill signal.
+# Needed for hosting this process in a docker
+# as the entry point command
+Signal::INT.trap { puts "Caught Ctrl+C..." ; exit }
+Signal::INT.trap { puts "Caught kill..."   ; exit }
+
+# Defaul values
+path = "./www"
+port = 80
 
 OptionParser.parse do |parser|
   parser.banner = "A Simple Static File Server"
@@ -27,7 +34,7 @@ server = HTTP::Server.new([
   HTTP::StaticFileHandler.new(path),
 ])
 
-address = server.bind_tcp port
+address = server.bind_tcp "0.0.0.0", port
 puts "Listening on http://#{address} and serving files in path #{path}"
 server.listen
 
